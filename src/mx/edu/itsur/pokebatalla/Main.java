@@ -21,16 +21,42 @@ public class Main {
         // TODO code application logic here
         System.out.println("Hello PokeBatalla!");
         
-        Pikachu pikachuSalvaje = new Pikachu();
+  
         Charmander charmanderSalvaje = new Charmander() ;
         
-        //Realizar la captura del pikachu salvaje
-        pikachuSalvaje.setNombre("Pedro");        
+        
+        
+        
+        Pikachu pikachuSalvaje = new Pikachu();
+        pikachuSalvaje.setNombre("Pedro");
         Pikachu miPikachu = pikachuSalvaje;
-        
         miPikachu.atacar(charmanderSalvaje);
-        
         miPikachu.atacar(charmanderSalvaje, "ATACKTRUENO");
+        
+        Horsea horseaSalvaje = new Horsea();
+        horseaSalvaje.setNombre("Juan");
+        Horsea miHorsea = horseaSalvaje;
+        miHorsea.atacar(pikachuSalvaje);
+        miHorsea.atacar(pikachuSalvaje, "RAYO BURBUJA");
+        
+        Mew mewSalvaje = new Mew();
+        Mew miMew = mewSalvaje;
+        mewSalvaje.setNombre("Beto");
+        miMew.atacar(pikachuSalvaje);
+        miMew.atacar(pikachuSalvaje, "AMNESIA");
+        
+        Molter molterSalvaje = new Molter();
+        molterSalvaje.setNombre("Paco");
+        Molter miMolter = molterSalvaje;
+        miMolter.atacar(pikachuSalvaje);
+        miMolter.atacar(pikachuSalvaje, "ONDA IGNEA");
+        
+        
+        
+        
+       
+        
+        
         
     }
     
