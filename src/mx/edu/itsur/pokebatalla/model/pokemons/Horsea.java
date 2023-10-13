@@ -1,5 +1,5 @@
 
-package mx.edu.itsur.pokebatalla.model;
+package mx.edu.itsur.pokebatalla.model.pokemons;
 
 public class Horsea extends Pokemon {
     public Horsea() {

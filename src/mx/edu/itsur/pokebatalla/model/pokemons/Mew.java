@@ -1,5 +1,5 @@
 
-package mx.edu.itsur.pokebatalla.model;
+package mx.edu.itsur.pokebatalla.model.pokemons;
 
 public class Mew extends Pokemon{
     public Mew() {
