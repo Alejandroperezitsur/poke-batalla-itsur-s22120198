@@ -36,7 +36,6 @@ public class Movimiento extends Pokemon {
     }
             
     protected tiposDeMovimiento tipo;
-    protected String clase;
     protected int potencia;
     protected int precision;
     protected int puntosPoder;
