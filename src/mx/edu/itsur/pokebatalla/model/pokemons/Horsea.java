@@ -1,6 +1,8 @@
 
 package mx.edu.itsur.pokebatalla.model.pokemons;
 
+import java.util.ArrayList;
+
 public class Horsea extends Pokemon {
     public Horsea() {
         this.tipo = "AGUA";

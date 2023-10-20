@@ -6,15 +6,10 @@ package mx.edu.itsur.pokebatalla.model.moves;
 
 import mx.edu.itsur.pokebatalla.model.pokemons.Pokemon;
 
-/**
- *
- * @author FJML1983
- */
-public class Movimiento extends Pokemon {
-    
-    
-    enum tiposDeMovimiento{
-        //Primera Generacion
+public class Movimiento {
+
+    enum TiposDeMovimiento {
+        //Primera Generación
         AGUA,
         BICHO,
         DRAGON,
@@ -31,22 +26,34 @@ public class Movimiento extends Pokemon {
         TIERRA,
         VENENO,
         VOLADOR
-        //Segunda Generacion...
-        
+        //Segunda Generación
+        //...        
     }
-            
-    protected tiposDeMovimiento tipo;
+
+    //Atributos
+    protected TiposDeMovimiento tipo;
     protected int potencia;
     protected int precision;
     protected int puntosPoder;
-    
-    
-    
-    
-    
-    public void utilizar(Pokemon usuario, Pokemon objetivo){
+
+    //Métodos
+    public void utilizar(Pokemon usuario, Pokemon objetivo) {
+        //Calcular el daño
+        int nivelAtacante = usuario.getNivel();
+        int ataqueAtacante = usuario.getAtaque();
+        int poderMovimiento = this.puntosPoder; //this.getPoder();
+        int defensaObjetivo = objetivo.getDefensa();
         
-    }
-    
-    
+        //Calcular el modificador, considerando tipos.
+        double modificador = 1.0; // Modificador base (sin modificaciones)       
+        //if ()... POR HACER        
+        
+        int danio = (int) (((
+                ((2 * nivelAtacante / 5 + 2) 
+                        * ataqueAtacante 
+                        * poderMovimiento / defensaObjetivo) 
+                  / 50) + 2) * modificador);
+        
+        objetivo.recibirDanio(danio);               
+    }    
 }
