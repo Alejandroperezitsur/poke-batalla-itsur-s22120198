@@ -7,6 +7,8 @@ package mx.edu.itsur.pokebatalla;
 import mx.edu.itsur.pokebatalla.model.pokemons.Bullbasaur;
 import mx.edu.itsur.pokebatalla.model.pokemons.Pikachu;
 import mx.edu.itsur.pokebatalla.model.pokemons.Charmander;
+import mx.edu.itsur.pokebatalla.model.pokemons.Horsea;
+import mx.edu.itsur.pokebatalla.model.pokemons.Mew;
 
 /**
  *
@@ -58,6 +60,24 @@ public class Main {
         
         
         
+    }
+
+    private static class Molter {
+
+        public Molter() {
+        }
+
+        private void atacar(Pikachu pikachuSalvaje) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        private void atacar(Pikachu pikachuSalvaje, String onda_ignea) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        private void setNombre(String paco) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
     }
     
 }
