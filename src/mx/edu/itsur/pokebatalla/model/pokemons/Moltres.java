@@ -2,9 +2,18 @@
 package mx.edu.itsur.pokebatalla.model.pokemons;
 
 import java.util.ArrayList;
+import mx.edu.itsur.pokebatalla.model.moves.AtaqueAla;
+import mx.edu.itsur.pokebatalla.model.moves.DanzaLluvia;
+import mx.edu.itsur.pokebatalla.model.moves.Lanzallamas;
+import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
 
 
 public class Moltres extends Pokemon {
+    public enum Movimientos{
+        DanzaLluvia,
+        AtaqueAla,
+        Lanzallamas,
+    }
     public Moltres() {
         this.tipo = "FUEGO/VOLADOR";
         this.hp = 90;
@@ -13,8 +22,6 @@ public class Moltres extends Pokemon {
         this.nivel = 1;
         this.precision = 4;
         this.habilidades = new ArrayList<>();
-        this.habilidades.add("ONDA IGNEA");
-        this.habilidades.add("ATAQUE AEREO");
     }
 
   
@@ -22,11 +29,28 @@ public class Moltres extends Pokemon {
         this(); 
         this.nombre = nombre;
     }
-    public void atacar(Pokemon oponente, String habilidad){
-        if(habilidad.equals("ONDA IGNEA")){
-            System.out.println("Realizando ONDA IGNEA");
-        }else if(habilidad.equals("ATAQUE AEREO")){
-            System.out.println("Realizando ATAQUE AEREO");            
+    
+     public void atacar(Pokemon oponente, Moltres.Movimientos movimientoAUtilizar) {
+
+        //Instanciar el movimiento solicitado
+        Movimiento instanciaMovimiento;        
+        switch (movimientoAUtilizar) {
+            case DanzaLluvia :
+                instanciaMovimiento = new DanzaLluvia();
+                break;
+            case AtaqueAla:
+                instanciaMovimiento = new AtaqueAla();
+                break;
+            case Lanzallamas:
+                instanciaMovimiento = new Lanzallamas();
+                break;
+
+            //Otros movimientos aquí...                
+            default:
+                throw new AssertionError();
         }
+
+        //Aplicar el movimiento.
+        instanciaMovimiento.utilizar(this, oponente);
     }
 }
