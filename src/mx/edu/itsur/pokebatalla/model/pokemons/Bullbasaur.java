@@ -7,6 +7,10 @@ import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
 
 public class Bullbasaur extends Pokemon {
 
+    public void atacar(Charmander charm, Movimientos movimientos) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     public enum Movimientos {
         ATAQUE_RAPIDO,
         LATIGO
@@ -27,7 +31,19 @@ public class Bullbasaur extends Pokemon {
         this.nombre = nombre;
 
     }
-     public void atacar(Pokemon oponente, Bullbasaur.Movimientos movimientoAUtilizar) {
+    @Override
+     public void atacar(Pokemon oponente, int ordinalMovimiento) {
+         //Si el pokemon está agotado no podrá realizar nada.
+        if (this.hp <= 0) {
+            System.out.println("Bullbasaur esta agotado y no puede realizar mas movimientos.");
+            return;
+        }
+
+         
+         
+         //Obtener el movimiento de acuerdo a su numero ordinal
+		Bullbasaur.Movimientos movimientoAUtilizar = Bullbasaur.Movimientos.values()[ordinalMovimiento];
+
 
         //Instanciar el movimiento solicitado
         Movimiento instanciaMovimiento;

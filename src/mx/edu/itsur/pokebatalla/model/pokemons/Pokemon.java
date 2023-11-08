@@ -31,7 +31,7 @@ public class Pokemon {
     }
 
     //Métodos
-    public void atacar(Pokemon oponente) {
+    public abstract void atacar(Pokemon oponente, int ordinalMovimiento) {
         
         System.out.println("Mi pokemon:" + this.nombre);
         System.out.println("esta atacando a: " + oponente);
