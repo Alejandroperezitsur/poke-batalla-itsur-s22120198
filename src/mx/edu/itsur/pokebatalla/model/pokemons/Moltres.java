@@ -32,6 +32,15 @@ public class Moltres extends Pokemon {
     
      public void atacar(Pokemon oponente, Moltres.Movimientos movimientoAUtilizar) {
 
+         //Obtener el movimiento de acuerdo a su numero ordinal
+		Moltres.Movimientos movimientoAUtilizar = Moltres.Movimientos.values()[ordinalMovimiento];
+
+		switch (movimientoAUtilizar) {
+				case IMPACTRUENO:
+					instanciaMovimiento = new Impactrueno();
+					break;
+				case ATAQUE_RAPIDO:
+
         //Instanciar el movimiento solicitado
         Movimiento instanciaMovimiento;        
         switch (movimientoAUtilizar) {

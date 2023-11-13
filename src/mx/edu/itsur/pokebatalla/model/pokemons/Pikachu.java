@@ -1,18 +1,12 @@
 
 package mx.edu.itsur.pokebatalla.model.pokemons;
 
-import java.util.ArrayList;
 import mx.edu.itsur.pokebatalla.model.moves.AtaqueRapido;
 import mx.edu.itsur.pokebatalla.model.moves.Impactrueno;
 import mx.edu.itsur.pokebatalla.model.moves.Latigo;
 import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
 
-
 public class Pikachu extends Pokemon {
-
-    public void atacar(Charmander charm, Movimientos movimientos) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
     /**
      * Movimientos que puede realizar el Pokémon
@@ -42,18 +36,25 @@ public class Pikachu extends Pokemon {
     }
 
     @Override
+    public Enum[] getMovimientos() {
+        return Pikachu.Movimientos.values();
+    }
+
+    @Override
     public void atacar(Pokemon oponente, int ordinalMovimiento) {
-//Si el pokemon está agotado no podrá realizar nada.
+
+        //Si el pokemon está agotado no podrá realizar nada.
         if (this.hp <= 0) {
             System.out.println("Pikachu esta agotado y no puede realizar mas movimientos.");
             return;
         }
 
         //Obtener el movimiento de acuerdo a su numero ordinal
-		Pikachu.Movimientos movimientoAUtilizar = Pikachu.Movimientos.values()[ordinalMovimiento];
+        Pikachu.Movimientos movimientoAUtilizar
+                = Pikachu.Movimientos.values()[ordinalMovimiento];
 
         //Instanciar el movimiento solicitado
-        Movimiento instanciaMovimiento;        
+        Movimiento instanciaMovimiento;
         switch (movimientoAUtilizar) {
             case IMPACTRUENO:
                 instanciaMovimiento = new Impactrueno();
