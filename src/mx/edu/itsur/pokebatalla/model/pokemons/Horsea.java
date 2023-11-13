@@ -6,7 +6,10 @@ import mx.edu.itsur.pokebatalla.model.moves.Cascada;
 import mx.edu.itsur.pokebatalla.model.moves.GolpeCabeza;
 import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
 import mx.edu.itsur.pokebatalla.model.moves.Proteccion;
-
+/**
+ *
+ * @author alejandro
+ */
 public class Horsea extends Pokemon {
 
     private final ArrayList<Object> habilidades;

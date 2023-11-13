@@ -7,7 +7,10 @@ package mx.edu.itsur.pokebatalla.model.pokemons;
 import mx.edu.itsur.pokebatalla.model.moves.AtaqueRapido;
 import mx.edu.itsur.pokebatalla.model.moves.Latigo;
 import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
-
+/**
+ *
+ * @author alejandro
+ */
 public class Bullbasaur extends Pokemon {
 
     public void atacar(Charmander charm, Movimientos movimientos) {

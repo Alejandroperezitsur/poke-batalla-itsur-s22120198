@@ -1,13 +1,22 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
 package mx.edu.itsur.pokebatalla;
 
-import mx.edu.itsur.pokebatalla.model.pokemons.Bullbasaur;
-import mx.edu.itsur.pokebatalla.model.pokemons.Pikachu;
-import mx.edu.itsur.pokebatalla.model.pokemons.Charmander;
+
+import mx.edu.itsur.pokebatalla.model.battles.Entrenador;
+ import mx.edu.itsur.pokebatalla.model.battles.Batalla;
 import mx.edu.itsur.pokebatalla.model.pokemons.Horsea;
 import mx.edu.itsur.pokebatalla.model.pokemons.Mew;
 import mx.edu.itsur.pokebatalla.model.pokemons.Moltres;
+import mx.edu.itsur.pokebatalla.model.pokemons.Pikachu;
 
+
+/**
+ *
+ * @author alejandro
+ */
 public class Main {
 
     /**
@@ -17,32 +26,26 @@ public class Main {
         // TODO code application logic here
         System.out.println("Hello PokeBatalla!");
         
-        Pikachu pika = new Pikachu();
-        Charmander charm = new Charmander();
-        Bullbasaur bullb = new Bullbasaur();
         
-                
-        System.out.println("->Pikachu se encuentra con un Charmander y ataca");
-        pika.atacar(charm, Pikachu.Movimientos.IMPACTRUENO);
         
-        System.out.println("->Charmander se molesta y responde ");
-        charm.atacar(pika, Charmander.Movimientos.ATAQUE_RAPIDO);
-     
-        System.out.println("->Bullbasaur se enoja porque atacaron a su amigo Pikachu y...");
-        bullb.atacar(charm, Bullbasaur.Movimientos.LATIGO);
+        Pikachu a = new Pikachu("JUAN");
+        Mew b = new Mew("PACO");
+        Horsea c = new Horsea("CENTA");
+        Moltres d = new Moltres("AVE");
         
-        Mew mono = new Mew();
-        Horsea caballo = new Horsea();
-        Moltres ave = new Moltres();
+         Entrenador en1 = new Entrenador("PIEDRA");
+        en1.capturarPokemon(a);
+        en1.capturarPokemon(b);
+
+        Entrenador en2 = new Entrenador("PAPEL");
+        en2.capturarPokemon(c);
+        en2.capturarPokemon(d);
+
+        Batalla v = new Batalla(en1, en2);
+        v.desarrollarBatalla();
         
-        System.out.println("->Mew se encuentra en el ring con Moltres y ataca");
-        mono.atacar(ave, Mew.Movimientos.Amnesia);
         
-        System.out.println("->Moltres se molesto por ese tremendo golpe y responde  ");
-        ave.atacar(mono, Moltres.Movimientos.Lanzallamas);
-     
-        System.out.println("->Horsea se enojo porque golpearon a su amigo mono e interviene en la pelea...");
-        caballo.atacar(ave, Horsea.Movimientos.Cascada);
+        
     }
     
 }

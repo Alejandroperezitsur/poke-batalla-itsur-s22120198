@@ -7,7 +7,10 @@ import mx.edu.itsur.pokebatalla.model.moves.DanzaLluvia;
 import mx.edu.itsur.pokebatalla.model.moves.Lanzallamas;
 import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
 
-
+/**
+ *
+ * @author alejandro
+ */
 public class Moltres extends Pokemon {
 
     private final ArrayList<Object> habilidades;

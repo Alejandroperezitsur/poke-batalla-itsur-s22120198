@@ -3,7 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package mx.edu.itsur.pokebatalla.model.moves;
-
+/**
+ *
+ * @author alejandro
+ */
 
 public class Cascada extends MovimientoEspecial {
         public Cascada() {

@@ -6,7 +6,10 @@ import mx.edu.itsur.pokebatalla.model.moves.Amnesia;
 import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
 import mx.edu.itsur.pokebatalla.model.moves.RayoIce;
 import mx.edu.itsur.pokebatalla.model.moves.Terremoto;
-
+/**
+ *
+ * @author alejandro
+ */
 public class Mew extends Pokemon{
 
     private final ArrayList<Object> habilidades;

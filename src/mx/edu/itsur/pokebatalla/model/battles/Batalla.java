@@ -1,7 +1,12 @@
+package mx.edu.itsur.pokebatalla.model.battles;
+
 import java.util.Scanner;
-import mx.edu.itsur.pokebatalla.model.battles.Entrenador;
 import mx.edu.itsur.pokebatalla.model.pokemons.Pokemon;
 
+/**
+ *
+ * @author alejandro
+ */
 public class Batalla {
     // Atributos
     protected Entrenador entrenador1;

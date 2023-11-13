@@ -1,6 +1,9 @@
 
 package mx.edu.itsur.pokebatalla.model.moves;
-
+/**
+ *
+ * @author alejandro
+ */
 public class Latigo extends MovimientoEstado{
 
     public Latigo() {

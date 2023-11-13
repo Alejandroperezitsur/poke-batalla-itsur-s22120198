@@ -8,7 +8,10 @@ import mx.edu.itsur.pokebatalla.model.moves.AtaqueRapido;
 import mx.edu.itsur.pokebatalla.model.moves.Grunido;
 
 import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
-
+/**
+ *
+ * @author alejandro
+ */
 public class Charmander extends Pokemon {
 
     public void atacar(Pikachu pika, Movimientos movimientos) {

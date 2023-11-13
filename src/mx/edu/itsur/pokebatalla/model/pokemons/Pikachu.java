@@ -5,7 +5,10 @@ import mx.edu.itsur.pokebatalla.model.moves.AtaqueRapido;
 import mx.edu.itsur.pokebatalla.model.moves.Impactrueno;
 import mx.edu.itsur.pokebatalla.model.moves.Latigo;
 import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
-
+/**
+ *
+ * @author alejandro
+ */
 public class Pikachu extends Pokemon {
 
     public void atacar(Charmander charm, Movimientos movimientos) {

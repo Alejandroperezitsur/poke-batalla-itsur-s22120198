@@ -3,8 +3,16 @@ package mx.edu.itsur.pokebatalla.model.battles;
 
 import java.util.List;
 import java.util.Scanner;
+import mx.edu.itsur.pokebatalla.model.pokemons.Horsea;
+import mx.edu.itsur.pokebatalla.model.pokemons.Mew;
+import mx.edu.itsur.pokebatalla.model.pokemons.Moltres;
+import mx.edu.itsur.pokebatalla.model.pokemons.Pikachu;
 import mx.edu.itsur.pokebatalla.model.pokemons.Pokemon;
 
+/**
+ *
+ * @author alejandro
+ */
 public class Entrenador {
     
     //Atributos
@@ -47,6 +55,26 @@ public class Entrenador {
     public void elegirPokemon(int opcion) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    public void capturarPokemon(Pikachu a) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void capturarPokemon(Mew b) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void capturarPokemon(Horsea c) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void capturarPokemon(Moltres d) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    
+
+   
     
     
     

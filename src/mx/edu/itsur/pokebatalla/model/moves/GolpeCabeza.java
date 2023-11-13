@@ -4,7 +4,10 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
-
+/**
+ *
+ * @author alejandro
+ */
 public class GolpeCabeza extends MovimientoFisico {
         public GolpeCabeza() {
         this.tipo=Movimiento.TiposDeMovimiento.NORMAL;

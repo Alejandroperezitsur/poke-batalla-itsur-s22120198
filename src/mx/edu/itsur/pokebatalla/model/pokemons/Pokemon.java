@@ -4,7 +4,10 @@
  */
 package mx.edu.itsur.pokebatalla.model.pokemons;
 
-
+/**
+ *
+ * @author alejandro
+ */
 public abstract class Pokemon {
 
     //Atributos
