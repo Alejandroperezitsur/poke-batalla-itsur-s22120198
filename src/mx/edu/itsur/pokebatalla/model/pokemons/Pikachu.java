@@ -8,6 +8,10 @@ import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
 
 public class Pikachu extends Pokemon {
 
+    public void atacar(Charmander charm, Movimientos movimientos) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     /**
      * Movimientos que puede realizar el Pokémon
      */

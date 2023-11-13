@@ -6,9 +6,14 @@ package mx.edu.itsur.pokebatalla.model.pokemons;
 
 import mx.edu.itsur.pokebatalla.model.moves.AtaqueRapido;
 import mx.edu.itsur.pokebatalla.model.moves.Grunido;
+
 import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
 
 public class Charmander extends Pokemon {
+
+    public void atacar(Pikachu pika, Movimientos movimientos) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
     /**
      * Movimientos que puede realizar el Pokémon

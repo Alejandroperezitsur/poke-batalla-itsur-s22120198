@@ -44,13 +44,41 @@ public abstract class Pokemon {
     protected abstract void atacar(Pokemon oponente, int ordinalMovimiento );
 
     //Devolver la lista de movimientos disponibles del pokemon.
-    public abstract Enum[] getMovimientos();
     
+    
+		public Enum[] getMovimientos() {
+			return Pikachu.Movimientos.values();
+		}
+
     @Override
     public String toString() {
 
         return this.getClass().getSimpleName() + 
                 "{tipo:" + tipo + " hp:" + hp + "}";
+    }
+
+    public String getNombre() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void mostrarMovimientos() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void atacar(int movimiento) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public String getUltimoMovimientoUtilizado() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public String getUltimoDanioCausado() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public boolean estaDerrotado() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

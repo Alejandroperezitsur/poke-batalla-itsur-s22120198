@@ -4,10 +4,7 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
-/**
- *
- * @author alejandro
- */
+
 public class AtaqueAla extends MovimientoFisico{
         public AtaqueAla() {
         this.tipo=TiposDeMovimiento.VOLADOR;

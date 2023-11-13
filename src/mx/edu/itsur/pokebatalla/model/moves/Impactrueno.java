@@ -6,10 +6,6 @@ package mx.edu.itsur.pokebatalla.model.moves;
 
 import mx.edu.itsur.pokebatalla.model.pokemons.Pokemon;
 
-/**
- *
- * @author FJML1983
- */
 public class Impactrueno extends MovimientoEspecial {
 
     public Impactrueno() {

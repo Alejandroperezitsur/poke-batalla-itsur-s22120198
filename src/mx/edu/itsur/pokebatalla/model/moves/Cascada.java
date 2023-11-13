@@ -4,10 +4,7 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
-/**
- *
- * @author alejandro
- */
+
 public class Cascada extends MovimientoEspecial {
         public Cascada() {
         this.tipo=TiposDeMovimiento.AGUA;

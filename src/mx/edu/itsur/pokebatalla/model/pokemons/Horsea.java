@@ -9,10 +9,18 @@ import mx.edu.itsur.pokebatalla.model.moves.Proteccion;
 
 public class Horsea extends Pokemon {
 
+    private final ArrayList<Object> habilidades;
+
     @Override
-    public void atacar(Pokemon oponente, int ordinalMovimiento) {
+    public Enum[] getMovimientos() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    public void atacar(Moltres ave, Movimientos movimientos) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    
     public enum Movimientos{
         Proteccion,
         GolpeCabeza,
@@ -32,21 +40,19 @@ public class Horsea extends Pokemon {
         this();
         this.nombre = nombre;
     }
-     public void atacar(Pokemon oponente, Horsea.Movimientos movimientoAUtilizar) {
+     public void atacar(Pokemon oponente, int ordinalMovimiento) {
 
-         //Si el pokemon está agotado no podrá realizar nada.
+        //Si el pokemon está agotado no podrá realizar nada.
         if (this.hp <= 0) {
-                System.out.println("Horsea esta agotado y no puede realizar mas movimientos.");
+            System.out.println("Horsea esta agotado y no puede realizar mas movimientos.");
             return;
         }
-       
 
+        //Obtener el movimiento de acuerdo a su numero ordinal
+        Horsea.Movimientos movimientoAUtilizar
+                = Horsea.Movimientos.values()[ordinalMovimiento];
+        Movimiento instanciaMovimiento;      
         
-//Obtener el movimiento de acuerdo a su numero ordinal
-            Horsea.Movimientos movimientoAUtilizar = Horsea.Movimientos.values()[ordinalMovimiento];
-
-        //Instanciar el movimiento solicitado
-        Movimiento instanciaMovimiento;        
         switch (movimientoAUtilizar) {
             case Proteccion:
                 instanciaMovimiento = new Proteccion();

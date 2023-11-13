@@ -4,10 +4,6 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
-/**
- *
- * @author alejandro
- */
 public class Amnesia extends MovimientoEstado {
         public Amnesia() {
         this.tipo=Movimiento.TiposDeMovimiento.PSIQUICO;

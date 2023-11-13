@@ -8,6 +8,18 @@ import mx.edu.itsur.pokebatalla.model.moves.RayoIce;
 import mx.edu.itsur.pokebatalla.model.moves.Terremoto;
 
 public class Mew extends Pokemon{
+
+    private final ArrayList<Object> habilidades;
+
+    
+    @Override
+    public Enum[] getMovimientos() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void atacar(Moltres ave, Movimientos movimientos) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     public enum Movimientos{
         Amnesia,
         Terremoto,
@@ -28,9 +40,18 @@ public class Mew extends Pokemon{
         this.nombre = nombre;
     }
 
-     public void atacar(Pokemon oponente, Mew.Movimientos movimientoAUtilizar) {
+     public void atacar(Pokemon oponente, int ordinalMovimiento) {
 
-        //Instanciar el movimiento solicitado
+        //Si el pokemon está agotado no podrá realizar nada.
+        if (this.hp <= 0) {
+            System.out.println("Mew esta agotado y no puede realizar mas movimientos.");
+            return;
+        }
+
+        //Obtener el movimiento de acuerdo a su numero ordinal
+        Mew.Movimientos movimientoAUtilizar
+                = Mew.Movimientos.values()[ordinalMovimiento];
+
         Movimiento instanciaMovimiento;        
         switch (movimientoAUtilizar) {
             case Amnesia:

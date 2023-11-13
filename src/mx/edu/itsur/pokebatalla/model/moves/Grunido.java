@@ -4,12 +4,12 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
-
-public class Lanzallamas extends MovimientoEspecial {
-        public Lanzallamas() {
-        this.tipo=TiposDeMovimiento.FUEGO;
-        this.potencia = 90;
+public class Grunido extends MovimientoEstado {
+        public Grunido() {
+        this.tipo = TiposDeMovimiento.NORMAL;
+        this.potencia = 0;
         this.precision = 100;
-        this.puntosPoder = 15;
-    }
+        this.puntosPoder = 40;
+
+    }  
 }

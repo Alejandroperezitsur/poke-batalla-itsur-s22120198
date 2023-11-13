@@ -4,10 +4,7 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
-/**
- *
- * @author alejandro
- */
+
 public class DanzaLluvia extends MovimientoEstado{
         public DanzaLluvia() {
         this.tipo=TiposDeMovimiento.AGUA;
