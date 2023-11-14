@@ -1,118 +1,169 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package mx.edu.itsur.pokebatalla.model.battles;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import mx.edu.itsur.pokebatalla.model.pokemons.Pokemon;
 
 /**
  *
- * @author alejandro
+ * * @author alejandro
  */
 public class Batalla {
-    // Atributos
     protected Entrenador entrenador1;
     protected Entrenador entrenador2;
     protected int turno = 1;
     protected boolean batallaFinalizada = false;
 
-    // Constructor
+    
     public Batalla(Entrenador entrenador1, Entrenador entrenador2) {
         this.entrenador1 = entrenador1;
         this.entrenador2 = entrenador2;
-    }
+    }    
 
-    // Métodos
-    public void desarrollarBatalla() {
+     public void IniciarBatalla() {
+        System.out.println(" ******************************************************** LA BATALLA ESTA POR INICIAR ********************************************************");
+        System.out.println("LOS OPONENTES SON: ");
+        System.out.println(entrenador1.getNombre() + "    <----------------V.S--------------->   " + entrenador2.getNombre());
+
+        System.out.println("");
+
+        EligeUnPokemon(entrenador1);
+        EligeUnPokemon(entrenador2);
+
         while (!batallaFinalizada) {
-            System.out.println("Turno " + turno);
-            
-            // Ambos entrenadores eligen Pokémon
-            elegirPokemon(turno);
-
-            // Mostrar información de la batalla
-            mostrarInfoBatalla();
-
-            // Turno actual: entrenador en turno elige movimiento
             Entrenador entrenadorEnTurno = (turno == 1) ? entrenador1 : entrenador2;
-            Pokemon pokemonEnTurno = entrenadorEnTurno.getPokemonActual();
+            Entrenador oponente = (turno == 1) ? entrenador2 : entrenador1;
 
-            // Cambiar de Pokémon si se desea
-            cambiarPokemonSiEsNecesario(entrenadorEnTurno);
+            System.out.println("Turno del entrenador: " + entrenadorEnTurno.getNombre());
 
-            // Mostrar movimientos disponibles y permitir al entrenador en turno elegir un movimiento
-            mostrarMovimientosDisponibles(pokemonEnTurno);
-            int movimientoElegido = elegirMovimiento();
+            // Asegurarse de que el Pokemon actual esté seleccionado
+            if (entrenadorEnTurno.getPokemonActual() == null || 0 > entrenadorEnTurno.getPokemonActual().gethp()) {
+                EligeOtroPokemon(entrenadorEnTurno);
+            }
+            // Asegurarse de que el oponente tenga un Pokemon actual
+            if (oponente.getPokemonActual() == null) {
+                System.out.println("No hay un Pokémon actualmente seleccionado para el oponente");
+                return;
+            }
 
-            // Realizar el movimiento seleccionado
-            realizarMovimiento(entrenadorEnTurno, movimientoElegido);
+            // Entrenador en turno elige ataque
+            //  se comento porque es muy molesto ponerlo en cada turno  ya nomas se deo cuando el pokemon es derrotado        cambiarPokemon(entrenadorEnTurno);
+            EligeUnAtaque(entrenadorEnTurno, (Pokemon) oponente.getPokemonActual());
 
-            // Verificar si la batalla ha terminado
-            verificarFinDeBatalla();
 
-            // Cambiar el turno
-            cambiarTurno();
+            if (oponente.estaDerrotado()) {
+                System.out.println("¡El entrenador " + oponente.getNombre() + " ha sido derrotado!");
+                batallaFinalizada = true;
+            } else {
+                // Cambiar el turno
+                turno = (turno == 1) ? 2 : 1;
+            }
         }
     }
 
-    private void elegirPokemon(int turno) {
-        Entrenador entrenador = (turno == 1) ? entrenador1 : entrenador2;
-        Scanner scanner = new Scanner(System.in);
+    private void EligeUnPokemon(Entrenador entrenadorEnturno) {
+        int idx = 1;
+        System.out.println("████████████████████████████████████████████");
+        for (Object pokemon : entrenadorEnturno.getPokemonsCapturados()) {
+            System.out.println(idx + ".- " + pokemon.getClass().getSimpleName());
+            idx++;
+             System.out.println("████████████████████████████████████████████");
+        }
+        System.out.println("");
+        System.out.println("Elige un  pokemon " + entrenadorEnturno.getNombre());
 
-        System.out.println(entrenador.getNombre() + ", elige tu Pokémon:");
-        entrenador.mostrarPokemonesDisponibles();
-        int opcion = scanner.nextInt();
+        char auxLectura = '0';
 
-        entrenador.elegirPokemon(opcion);
+        try {
+            auxLectura = (char) System.in.read();
+            System.in.read((new byte[System.in.available()]));
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        Pokemon pokemonSeleccionado = (Pokemon) entrenadorEnturno.getPokemonsCapturados()
+                .get(Character.getNumericValue(auxLectura) - 1);
+        entrenadorEnturno.setPokemonActual(pokemonSeleccionado);
     }
 
-    private void mostrarInfoBatalla() {
-        System.out.println("Batalla entre " + entrenador1.getNombre() + " y " + entrenador2.getNombre());
-        System.out.println(entrenador1.getNombre() + ": " + entrenador1.getPokemonActual());
-        System.out.println(entrenador2.getNombre() + ": " + entrenador2.getPokemonActual());
+    //****************************Metodo para atacar****************************
+    private void EligeUnAtaque(Entrenador entrenadorEnturno, Pokemon oponente) {
+
+        Pokemon pokemonActual = (Pokemon) entrenadorEnturno.getPokemonActual();
+
+        System.out.println("-----------------------------------------------------");
+        System.out.println("Seleccione un ataque para " + pokemonActual.getClass().getSimpleName() + ":");
+
+        int idx = 1;
+
+        for (Enum movimiento : pokemonActual.getMovimientos()) {
+            System.out.println(idx + ".- " + movimiento);
+            idx++;
+        }
+        System.out.println("-----------------------------------------------------");
+
+        int opcionAtaque = -1;
+        try {
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            opcionAtaque = Integer.parseInt(br.readLine());
+        } catch (IOException | NumberFormatException ex) {
+            System.out.println("Por favor, ingrese un número válido.");
+            return;
+        }
+
+        if (opcionAtaque < 1 || opcionAtaque > pokemonActual.getMovimientos().length) {
+            System.out.println("La opción de ataque no es válida.");
+            return;
+        }
+
+        //llamar al metodo instruirMovimientoAlPokemonActual
+        entrenadorEnturno.instruirMovimientoAlPokemonActual(oponente, opcionAtaque - 1);
     }
 
-    private void cambiarPokemonSiEsNecesario(Entrenador entrenador) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("¿Quieres cambiar de Pokémon? (Sí/No)");
-        String respuesta = scanner.next();
+    ///Cambiar pokemon
+    private void EligeOtroPokemon(Entrenador entrenador) {
+        System.out.println("¿Deseas cambiar de Pokémon? (S/N)");
 
-        if (respuesta.equalsIgnoreCase("Sí")) {
-            entrenador.mostrarPokemonesDisponibles();
-            int opcion = scanner.nextInt();
-            entrenador.elegirPokemon(opcion);
+        char respuesta = 'N';
+
+        try {
+            respuesta = (char) System.in.read();
+            System.in.read((new byte[System.in.available()]));
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+        if (respuesta == 'S' || respuesta == 's') {
+
+            System.out.println("Pokémon disponibles:");
+            int idx = 1;
+            for (Object pokemon : entrenador.getPokemonsCapturados()) {
+                System.out.println(idx + ".- " + pokemon.getClass().getSimpleName());
+                idx++;
+            }
+
+            // Elegir  un nuevo pokemon de la lista 
+            System.out.println("Elige un nuevo Pokémon:");
+
+            char auxLectura = '0';
+
+            try {
+                auxLectura = (char) System.in.read();
+                System.in.read((new byte[System.in.available()]));
+            } catch (IOException ex) {
+            }
+
+            Pokemon nuevoPokemon = (Pokemon) entrenador.getPokemonsCapturados().get(Character.getNumericValue(auxLectura) - 1);
+            entrenador.setPokemonActual(nuevoPokemon);
+
+            System.out.println("Has cambiado a " + nuevoPokemon.getClass().getSimpleName() + " en tu equipo.");
         }
     }
 
-    private void mostrarMovimientosDisponibles(Pokemon pokemon) {
-        System.out.println("Movimientos de " + pokemon.getNombre() + ":");
-        pokemon.mostrarMovimientos();
-    }
-
-    private int elegirMovimiento() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Elige un movimiento (1, 2, 3, ...):");
-        return scanner.nextInt();
-    }
-
-    private void realizarMovimiento(Entrenador entrenador, int movimiento) {
-        Pokemon pokemonEnTurno = entrenador.getPokemonActual();
-        pokemonEnTurno.atacar(movimiento);
-
-        System.out.println(entrenador.getNombre() + " usó " + pokemonEnTurno.getUltimoMovimientoUtilizado() +
-                " y causó " + pokemonEnTurno.getUltimoDanioCausado() + " de daño.");
-    }
-
-    private void verificarFinDeBatalla() {
-        if (entrenador1.getPokemonActual().estaDerrotado()) {
-            System.out.println(entrenador2.getNombre() + " ha ganado la batalla!");
-            batallaFinalizada = true;
-        } else if (entrenador2.getPokemonActual().estaDerrotado()) {
-            System.out.println(entrenador1.getNombre() + " ha ganado la batalla!");
-            batallaFinalizada = true;
-        }
-    }
-
-    private void cambiarTurno() {
-        turno = (turno == 1) ? 2 : 1;
-    }
+  
 }
-

@@ -27,6 +27,9 @@ public abstract class Pokemon {
     public int getNivel() {
         return nivel;
     }
+    public int gethp() {
+        return hp;
+    }
     public int getAtaque() {
         return ataque;
     }    
@@ -44,7 +47,7 @@ public abstract class Pokemon {
         this.hp = this.hp - danio;
     }        
     
-    protected abstract void atacar(Pokemon oponente, int ordinalMovimiento );
+    public abstract void atacar(Pokemon oponente, int ordinalMovimiento );
 
     //Devolver la lista de movimientos disponibles del pokemon.
     
@@ -83,5 +86,7 @@ public abstract class Pokemon {
     public boolean estaDerrotado() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+   
 
 }

@@ -1,12 +1,11 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package mx.edu.itsur.pokebatalla.model.battles;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-import mx.edu.itsur.pokebatalla.model.pokemons.Horsea;
-import mx.edu.itsur.pokebatalla.model.pokemons.Mew;
-import mx.edu.itsur.pokebatalla.model.pokemons.Moltres;
-import mx.edu.itsur.pokebatalla.model.pokemons.Pikachu;
 import mx.edu.itsur.pokebatalla.model.pokemons.Pokemon;
 
 /**
@@ -14,69 +13,62 @@ import mx.edu.itsur.pokebatalla.model.pokemons.Pokemon;
  * @author alejandro
  */
 public class Entrenador {
+    public String nombre;
+    public List<Pokemon> pokemonsCapturados;
+    public Pokemon pokemonActual;
     
-    //Atributos
-		protected String nombre;
-		protected List<Pokemon> pokemonsCapturados;
-                protected List<Pokemon> pokemonsDisponibles;
-		protected Pokemon pokemonActual;  //Representa el pokemon activo para batalla.
-    private Pokemon pokemon;
+       public Entrenador(String nombre) {
+        this.nombre = nombre;
+        this.pokemonsCapturados = new ArrayList<>();
+        this.pokemonsCapturados = new ArrayList<>();
+    }
 
-                public Entrenador(String nombre){
-                    this.nombre = nombre;
-                }
-                public String getNombre(){
-                    return nombre;
-                }
-                public void asignarPokemon(Scanner scanner, List<Pokemon> pokemon){
-                    System.out.println(nombre + ", elija su Pokemon: ");
-                    
-                    //Mostrar la lista de pokemon disponibles
-                    for(int i = 0; i<pokemonsDisponibles.size(); i++){
-                        System.out.println(i + ", "+pokemonsDisponibles.get(i));
-                    }
-                    System.out.println("Elija el numero del Pokemon: ");
-                    int indicePokemon = scanner.nextInt();
-                    
-                    //Obtener el Pokemon elegido por el entrenador
-                    Pokemon pokemonElegido = pokemonsDisponibles.get(indicePokemon);
-                    
-                    this.pokemon = pokemonElegido;
-                }
+    public boolean capturarPokemon(Pokemon p) {
+        return pokemonsCapturados.add(p);
+    }
+
+
+    public void instruirMovimientoAlPokemonActual(Pokemon oponente, int ordinalMovimiento) {
+        
+        if (pokemonActual == null) {
+            System.out.println("No hay un Pokémon actualmente seleccionado.");
+            return;
+        }
+
+        if (ordinalMovimiento < 0 || ordinalMovimiento >= pokemonActual.getMovimientos().length) {
+            System.out.println("El ordinal de movimiento no es válido.");
+            return;
+        }
+        // Llamar al metodo atacar del Pokemon actual
+this.pokemonActual.atacar(oponente, ordinalMovimiento);
+
+    }
+    
+
+    public boolean estaDerrotado() {
+        for (Pokemon pokemon : pokemonsCapturados) {
+
+            if (pokemon.gethp() > 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // Getters y Setters
+    public String getNombre() {
+        return nombre;
+    }
 
     public Pokemon getPokemonActual() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return pokemonActual;
     }
 
-    public void mostrarPokemonesDisponibles() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void setPokemonActual(Pokemon p) {
+       this. pokemonActual = p;
     }
 
-    public void elegirPokemon(int opcion) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<Pokemon> getPokemonsCapturados() {
+        return pokemonsCapturados;
     }
-
-    public void capturarPokemon(Pikachu a) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public void capturarPokemon(Mew b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public void capturarPokemon(Horsea c) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public void capturarPokemon(Moltres d) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    
-
-   
-    
-    
-    
-    
 }

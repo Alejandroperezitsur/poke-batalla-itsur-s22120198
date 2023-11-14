@@ -15,10 +15,7 @@ public class Mew extends Pokemon{
     private final ArrayList<Object> habilidades;
 
     
-    @Override
-    public Enum[] getMovimientos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+   
 
     public void atacar(Moltres ave, Movimientos movimientos) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
