@@ -1,39 +1,37 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package mx.edu.itsur.pokebatalla.model.battles;
+package mx.edu.itsur.pokebatalla.model.Battles;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import mx.edu.itsur.pokebatalla.model.pokemons.Pokemon;
+import mx.edu.itsur.pokebatalla.model.Pokemons.Pokemon;
 
 /**
  *
- * * @author alejandro
+ * @author alejandro perez vazquez
  */
 public class Batalla {
+
     protected Entrenador entrenador1;
     protected Entrenador entrenador2;
     protected int turno = 1;
     protected boolean batallaFinalizada = false;
 
-    
+    private boolean primerAtaqueRealizado = false;
+
     public Batalla(Entrenador entrenador1, Entrenador entrenador2) {
         this.entrenador1 = entrenador1;
         this.entrenador2 = entrenador2;
-    }    
+    }
 
-     public void IniciarBatalla() {
-        System.out.println(" ******************************************************** LA BATALLA ESTA POR INICIAR ********************************************************");
+    public void desarrollarBatalla() {
+        System.out.println(" ******************************************************** LA BATTA  INICIO ********************************************************");
         System.out.println("LOS OPONENTES SON: ");
         System.out.println(entrenador1.getNombre() + "    <----------------V.S--------------->   " + entrenador2.getNombre());
 
         System.out.println("");
 
-        EligeUnPokemon(entrenador1);
-        EligeUnPokemon(entrenador2);
+        eligirPokemon(entrenador1);
+        eligirPokemon(entrenador2);
 
         while (!batallaFinalizada) {
             Entrenador entrenadorEnTurno = (turno == 1) ? entrenador1 : entrenador2;
@@ -42,8 +40,8 @@ public class Batalla {
             System.out.println("Turno del entrenador: " + entrenadorEnTurno.getNombre());
 
             // Asegurarse de que el Pokemon actual esté seleccionado
-            if (entrenadorEnTurno.getPokemonActual() == null || 0 > entrenadorEnTurno.getPokemonActual().gethp()) {
-                EligeOtroPokemon(entrenadorEnTurno);
+            if (entrenadorEnTurno.getPokemonActual() == null || entrenadorEnTurno.getPokemonActual().gethp() <= 0) {
+                cambiarPokemon(entrenadorEnTurno);
             }
             // Asegurarse de que el oponente tenga un Pokemon actual
             if (oponente.getPokemonActual() == null) {
@@ -53,8 +51,9 @@ public class Batalla {
 
             // Entrenador en turno elige ataque
             //  se comento porque es muy molesto ponerlo en cada turno  ya nomas se deo cuando el pokemon es derrotado        cambiarPokemon(entrenadorEnTurno);
-            EligeUnAtaque(entrenadorEnTurno, (Pokemon) oponente.getPokemonActual());
+            seleccionarAtaque(entrenadorEnTurno, oponente.getPokemonActual());
 
+            Pokemon pokemonEnTurno = entrenadorEnTurno.getPokemonActual();
 
             if (oponente.estaDerrotado()) {
                 System.out.println("¡El entrenador " + oponente.getNombre() + " ha sido derrotado!");
@@ -66,10 +65,10 @@ public class Batalla {
         }
     }
 
-    private void EligeUnPokemon(Entrenador entrenadorEnturno) {
+    private void eligirPokemon(Entrenador entrenadorEnturno) {
         int idx = 1;
         System.out.println("████████████████████████████████████████████");
-        for (Object pokemon : entrenadorEnturno.getPokemonsCapturados()) {
+        for (Pokemon pokemon : entrenadorEnturno.getPokemonsCapturados()) {
             System.out.println(idx + ".- " + pokemon.getClass().getSimpleName());
             idx++;
              System.out.println("████████████████████████████████████████████");
@@ -86,15 +85,15 @@ public class Batalla {
             ex.printStackTrace();
         }
 
-        Pokemon pokemonSeleccionado = (Pokemon) entrenadorEnturno.getPokemonsCapturados()
+        Pokemon pokemonSeleccionado = entrenadorEnturno.getPokemonsCapturados()
                 .get(Character.getNumericValue(auxLectura) - 1);
         entrenadorEnturno.setPokemonActual(pokemonSeleccionado);
     }
 
     //****************************Metodo para atacar****************************
-    private void EligeUnAtaque(Entrenador entrenadorEnturno, Pokemon oponente) {
+    private void seleccionarAtaque(Entrenador entrenadorEnturno, Pokemon oponente) {
 
-        Pokemon pokemonActual = (Pokemon) entrenadorEnturno.getPokemonActual();
+        Pokemon pokemonActual = entrenadorEnturno.getPokemonActual();
 
         System.out.println("-----------------------------------------------------");
         System.out.println("Seleccione un ataque para " + pokemonActual.getClass().getSimpleName() + ":");
@@ -126,7 +125,7 @@ public class Batalla {
     }
 
     ///Cambiar pokemon
-    private void EligeOtroPokemon(Entrenador entrenador) {
+    private void cambiarPokemon(Entrenador entrenador) {
         System.out.println("¿Deseas cambiar de Pokémon? (S/N)");
 
         char respuesta = 'N';
@@ -142,12 +141,12 @@ public class Batalla {
 
             System.out.println("Pokémon disponibles:");
             int idx = 1;
-            for (Object pokemon : entrenador.getPokemonsCapturados()) {
+            for (Pokemon pokemon : entrenador.getPokemonsCapturados()) {
                 System.out.println(idx + ".- " + pokemon.getClass().getSimpleName());
                 idx++;
             }
 
-            // Elegir  un nuevo pokemon de la lista 
+            // Elegir  un nuevo pokemon de ka lista 
             System.out.println("Elige un nuevo Pokémon:");
 
             char auxLectura = '0';
@@ -156,14 +155,13 @@ public class Batalla {
                 auxLectura = (char) System.in.read();
                 System.in.read((new byte[System.in.available()]));
             } catch (IOException ex) {
+                ex.printStackTrace();
             }
 
-            Pokemon nuevoPokemon = (Pokemon) entrenador.getPokemonsCapturados().get(Character.getNumericValue(auxLectura) - 1);
+            Pokemon nuevoPokemon = entrenador.getPokemonsCapturados().get(Character.getNumericValue(auxLectura) - 1);
             entrenador.setPokemonActual(nuevoPokemon);
 
             System.out.println("Has cambiado a " + nuevoPokemon.getClass().getSimpleName() + " en tu equipo.");
         }
     }
-
-  
 }

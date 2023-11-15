@@ -3,11 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package mx.edu.itsur.pokebatalla.model.moves;
+
+import mx.edu.itsur.pokebatalla.model.Pokemons.Pokemon;
+
 /**
  *
  * @author alejandro
  */
-import mx.edu.itsur.pokebatalla.model.pokemons.Pokemon;
 
 public class Impactrueno extends MovimientoEspecial {
 

@@ -1,80 +1,68 @@
+package mx.edu.itsur.pokebatalla.model.Pokemons;
 
-package mx.edu.itsur.pokebatalla.model.pokemons;
 
-import java.util.ArrayList;
-import mx.edu.itsur.pokebatalla.model.moves.AtaqueAla;
-import mx.edu.itsur.pokebatalla.model.moves.DanzaLluvia;
-import mx.edu.itsur.pokebatalla.model.moves.Lanzallamas;
+import mx.edu.itsur.pokebatalla.model.moves.AtaqueRapido;
 import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
+import mx.edu.itsur.pokebatalla.model.moves.OndaIgnea;
+import mx.edu.itsur.pokebatalla.model.moves.Latigo;
+
+
 
 /**
  *
- * @author alejandro
+ * @author alejandro perez vazquez
  */
-public class Moltres extends Pokemon {
-
-    private final ArrayList<Object> habilidades;
-
-    @Override
-    public Enum[] getMovimientos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public void atacar(Mew mono, Movimientos movimientos) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    public enum Movimientos{
+public class Moltres extends Pokemon{
+     public enum Movimientos{
         DanzaLluvia,
         AtaqueAla,
         Lanzallamas,
     }
+
     public Moltres() {
-        this.tipo = "FUEGO/VOLADOR";
-        this.hp = 90;
-        this.ataque = 100;
-        this.defensa = 90;
-        this.nivel = 1;
-        this.precision = 4;
-        this.habilidades = new ArrayList<>();
+        tipo = "FUEGO";
+        hp = 90;
+        ataque = 100;
+        defensa = 90;
+        nivel = 1;
+        precision = 4;
     }
 
-  
-    public Moltres(String nombre){
-        this(); 
+    //Constructor alterno 1
+    public Moltres(String nombre) {
+        this(); //invocando al constructor default
         this.nombre = nombre;
+
     }
-    
-    @Override
+      @Override
+        public Enum[] getMovimientos() {
+            return Moltres.Movimientos.values();
+        }
+        @Override
      public void atacar(Pokemon oponente, int ordinalMovimiento) {
 
-        //Si el pokemon está agotado no podrá realizar nada.
-        if (this.hp <= 0) {
-            System.out.println("Moltres esta agotado y no puede realizar mas movimientos.");
-            return;
-        }
-
-        //Obtener el movimiento de acuerdo a su numero ordinal
-        Moltres.Movimientos movimientoAUtilizar
-                = Moltres.Movimientos.values()[ordinalMovimiento];
-
-        Movimiento instanciaMovimiento;        
+        //Instanciar el movimiento solicitado
+        Movimiento instanciaMovimiento;
+        Moltres.Movimientos movimientoAUtilizar = Moltres.Movimientos.values()[ordinalMovimiento];
         switch (movimientoAUtilizar) {
-            case DanzaLluvia :
-                instanciaMovimiento = new DanzaLluvia();
-                break;
             case AtaqueAla:
-                instanciaMovimiento = new AtaqueAla();
+                instanciaMovimiento = new AtaqueRapido();
                 break;
-            case Lanzallamas:
-                instanciaMovimiento = new Lanzallamas();
+            case DanzaLluvia:
+                instanciaMovimiento = new OndaIgnea();
+                break;
+                case Lanzallamas:
+                instanciaMovimiento = new Latigo();
                 break;
 
-            //Otros movimientos aquí...                
+            //Otros movimientos aquí...
             default:
                 throw new AssertionError();
         }
 
-        //Aplicar el movimiento.
+        //Aplicar el movimiento
         instanciaMovimiento.utilizar(this, oponente);
+
     }
+    
 }

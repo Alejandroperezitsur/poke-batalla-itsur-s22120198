@@ -1,79 +1,68 @@
+package mx.edu.itsur.pokebatalla.model.Pokemons;
 
-package mx.edu.itsur.pokebatalla.model.pokemons;
 
-import java.util.ArrayList;
-import mx.edu.itsur.pokebatalla.model.moves.Cascada;
-import mx.edu.itsur.pokebatalla.model.moves.GolpeCabeza;
+import mx.edu.itsur.pokebatalla.model.moves.AtaqueRapido;
 import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
-import mx.edu.itsur.pokebatalla.model.moves.Proteccion;
+import mx.edu.itsur.pokebatalla.model.moves.OndaIgnea;
+import mx.edu.itsur.pokebatalla.model.moves.Latigo;
+
+
+
 /**
  *
- * @author alejandro
+ * @author alejandro perez vazquez
  */
-public class Horsea extends Pokemon {
-
-    private final ArrayList<Object> habilidades;
-
-    @Override
-    public Enum[] getMovimientos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public void atacar(Moltres ave, Movimientos movimientos) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    
+public class Horsea extends Pokemon{
     public enum Movimientos{
         Proteccion,
         GolpeCabeza,
         Cascada,
     }
+
     public Horsea() {
-        this.tipo = "AGUA";
-        this.hp = 30;
-        this.ataque = 40;
-        this.defensa = 70;
-        this.nivel = 1;
-        this.precision = 3;
-        this.habilidades = new ArrayList<>();
+        tipo = "AGUA";
+        hp = 38;
+        ataque = 40;
+        defensa = 70;
+        nivel = 1;
+        precision = 3;
     }
 
-    public Horsea(String nombre){
-        this();
+    //Constructor alterno 1
+    public Horsea(String nombre) {
+        this(); //invocando al constructor default
         this.nombre = nombre;
+
     }
+      @Override
+        public Enum[] getMovimientos() {
+                return Horsea.Movimientos.values();
+        }
+        @Override
      public void atacar(Pokemon oponente, int ordinalMovimiento) {
 
-        //Si el pokemon está agotado no podrá realizar nada.
-        if (this.hp <= 0) {
-            System.out.println("Horsea esta agotado y no puede realizar mas movimientos.");
-            return;
-        }
-
-        //Obtener el movimiento de acuerdo a su numero ordinal
-        Horsea.Movimientos movimientoAUtilizar
-                = Horsea.Movimientos.values()[ordinalMovimiento];
-        Movimiento instanciaMovimiento;      
-        
+        //Instanciar el movimiento solicitado
+        Movimiento instanciaMovimiento;
+        Horsea.Movimientos movimientoAUtilizar = Horsea.Movimientos.values()[ordinalMovimiento];
         switch (movimientoAUtilizar) {
-            case Proteccion:
-                instanciaMovimiento = new Proteccion();
+            case Cascada:
+                instanciaMovimiento = new AtaqueRapido();
                 break;
             case GolpeCabeza:
-                instanciaMovimiento = new GolpeCabeza();
+                instanciaMovimiento = new OndaIgnea();
                 break;
-            case Cascada:
-                instanciaMovimiento = new Cascada();
+                case Proteccion:
+                instanciaMovimiento = new Latigo();
                 break;
 
-            //Otros movimientos aquí...                
+            //Otros movimientos aquí...
             default:
                 throw new AssertionError();
         }
 
-        //Aplicar el movimiento.
+        //Aplicar el movimiento
         instanciaMovimiento.utilizar(this, oponente);
-    }
 
+    }
+    
 }

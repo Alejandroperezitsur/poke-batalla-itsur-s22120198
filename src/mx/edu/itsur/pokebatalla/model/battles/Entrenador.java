@@ -1,23 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package mx.edu.itsur.pokebatalla.model.battles;
+
+package mx.edu.itsur.pokebatalla.model.Battles;
 
 import java.util.ArrayList;
 import java.util.List;
-import mx.edu.itsur.pokebatalla.model.pokemons.Pokemon;
-
+import mx.edu.itsur.pokebatalla.model.Pokemons.Pokemon;
 /**
  *
- * @author alejandro
+ * @author alejandro perez vazquez
  */
 public class Entrenador {
-    public String nombre;
-    public List<Pokemon> pokemonsCapturados;
-    public Pokemon pokemonActual;
-    
-       public Entrenador(String nombre) {
+
+    protected String nombre;
+    protected List<Pokemon> pokemonsCapturados;
+    protected Pokemon pokemonActual;
+
+    public Entrenador(String nombre) {
         this.nombre = nombre;
         this.pokemonsCapturados = new ArrayList<>();
         this.pokemonsCapturados = new ArrayList<>();
@@ -40,8 +37,7 @@ public class Entrenador {
             return;
         }
         // Llamar al metodo atacar del Pokemon actual
-this.pokemonActual.atacar(oponente, ordinalMovimiento);
-
+        this.pokemonActual.atacar(oponente, ordinalMovimiento);
     }
     
 
@@ -55,7 +51,7 @@ this.pokemonActual.atacar(oponente, ordinalMovimiento);
         return true;
     }
 
-    // Getters y Setters
+    
     public String getNombre() {
         return nombre;
     }
