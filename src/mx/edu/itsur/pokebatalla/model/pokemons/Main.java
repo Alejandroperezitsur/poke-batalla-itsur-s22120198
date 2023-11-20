@@ -10,7 +10,7 @@ import mx.edu.itsur.pokebatalla.model.Battles.Entrenador;
 public class Main {
 
     public static void main(String[] args) {
-        //Unidad 4 
+        //Unidad 5 
 
         Pikachu a = new Pikachu("EDD");
         Mew b = new Mew("ED");
