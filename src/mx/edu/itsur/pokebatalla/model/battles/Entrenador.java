@@ -28,7 +28,7 @@ public class Entrenador {
     public void instruirMovimientoAlPokemonActual(Pokemon oponente, int ordinalMovimiento) {
         
         if (pokemonActual == null) {
-            System.out.println("No hay un Pokémon actualmente seleccionado.");
+            System.out.println("No hay un Pokémon seleccionado actualmente.");
             return;
         }
 
