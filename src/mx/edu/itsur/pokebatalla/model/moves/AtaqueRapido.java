@@ -3,11 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package mx.edu.itsur.pokebatalla.model.moves;
+
+import java.io.Serializable;
+
 /**
  *
  * @author alejandro
  */
-public class AtaqueRapido extends MovimientoFisico{
+public class AtaqueRapido extends MovimientoFisico implements Serializable{
 
     public AtaqueRapido() {
         this.tipo=TiposDeMovimiento.NORMAL;

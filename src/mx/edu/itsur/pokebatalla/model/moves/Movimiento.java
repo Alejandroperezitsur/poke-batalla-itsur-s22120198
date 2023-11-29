@@ -1,10 +1,11 @@
 package mx.edu.itsur.pokebatalla.model.moves;
+import java.io.Serializable;
 import mx.edu.itsur.pokebatalla. model.Pokemons.Pokemon;
 
 /**
  * @author alejandro perez vazquez
  */
-public class Movimiento {
+public class Movimiento implements Serializable {
 
     enum TiposDeMovimiento {
         AGUA,

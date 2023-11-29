@@ -4,12 +4,14 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
+import java.io.Serializable;
+
 /**
  *
  * @author alejandro perez vazquez
  *
  */
-public class Hipnosis extends MovimientoEstado {
+public class Hipnosis extends MovimientoEstado implements Serializable {
      public Hipnosis() {
         this.tipo = Movimiento.TiposDeMovimiento.PSIQUICO;
         this.potencia = 100;

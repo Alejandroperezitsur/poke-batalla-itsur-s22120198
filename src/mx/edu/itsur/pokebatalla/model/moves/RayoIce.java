@@ -4,11 +4,13 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
+import java.io.Serializable;
+
 /**
  *
  * @author alejandro
  */
-public class RayoIce extends MovimientoEspecial{
+public class RayoIce extends MovimientoEspecial implements Serializable{
         public RayoIce() {
         this.tipo=Movimiento.TiposDeMovimiento.HIELO;
         this.potencia = 90;

@@ -4,11 +4,13 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
+import java.io.Serializable;
+
 /**
  *
  * @author alejandro perez vazquez
  */
-public class OndaIgnea extends MovimientoEspecial {
+public class OndaIgnea extends MovimientoEspecial implements Serializable {
          public OndaIgnea() {
         this.tipo = Movimiento.TiposDeMovimiento.FUEGO;
         this.potencia = 95;

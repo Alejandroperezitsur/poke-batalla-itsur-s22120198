@@ -4,11 +4,13 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
+import java.io.Serializable;
+
 /**
  *
  * @author alejandro perez vazquez
  */
-public class RayoConfuso extends MovimientoEstado {
+public class RayoConfuso extends MovimientoEstado implements Serializable {
      public RayoConfuso() {
         this.tipo = Movimiento.TiposDeMovimiento.FANTASMA;
         this.potencia = 100;

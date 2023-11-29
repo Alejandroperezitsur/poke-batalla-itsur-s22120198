@@ -4,11 +4,13 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
+import java.io.Serializable;
+
 /**
  *
  * @author alejandro perez vazquez
  */
-public class GotaVital extends MovimientoFisico{
+public class GotaVital extends MovimientoFisico implements Serializable{
     public GotaVital() {
         this.tipo = TiposDeMovimiento.AGUA;
         this.potencia = 0;

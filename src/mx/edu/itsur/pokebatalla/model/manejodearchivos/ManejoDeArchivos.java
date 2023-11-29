@@ -8,7 +8,7 @@ import mx.edu.itsur.pokebatalla.model.Battles.Batalla;
  * @author alejandro perez vazquez
  */
 
-public class ManejoDeArchivos {
+public class ManejoDeArchivos implements Serializable {
 
     public static final String NOMBRE_DEL_ARCHIVO_PARTIDA = "Partida.pokemon";
 

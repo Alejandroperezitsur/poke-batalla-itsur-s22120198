@@ -1,5 +1,6 @@
     package mx.edu.itsur.pokebatalla.model.Pokemons;
 
+import java.io.Serializable;
     import java.util.List;
     import java.util.Random;
     import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
@@ -8,7 +9,7 @@
      *
      *@author alejandro perez vazquez
      */
-    public abstract class Pokemon {
+    public abstract class Pokemon implements Serializable{
 
         //Atributos
         protected String tipo;
