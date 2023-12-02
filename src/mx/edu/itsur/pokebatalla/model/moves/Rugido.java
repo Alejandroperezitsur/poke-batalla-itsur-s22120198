@@ -4,13 +4,11 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
-import java.io.Serializable;
-
 /**
  *
  * @author alejandro perez vazquez
  */
-public class Rugido extends MovimientoFisico implements Serializable{
+public class Rugido extends MovimientoFisico {
      public Rugido() {
         this.tipo = Movimiento.TiposDeMovimiento.NORMAL;
         this.potencia = 0;

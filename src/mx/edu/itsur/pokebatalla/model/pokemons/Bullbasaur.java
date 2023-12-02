@@ -1,6 +1,5 @@
 package mx.edu.itsur.pokebatalla.model.Pokemons;
 
-import java.io.Serializable;
 import mx.edu.itsur.pokebatalla.model.moves.AtaqueRapido;
 import mx.edu.itsur.pokebatalla.model.moves.Latigo;
 import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
@@ -8,7 +7,7 @@ import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
 /**
  * @author alejandro perez vazquez
  */
-public class Bullbasaur extends Pokemon implements Serializable {
+public class Bullbasaur extends Pokemon  {
 
     public Bullbasaur() {
         tipo = "PLANTA/VENENO";

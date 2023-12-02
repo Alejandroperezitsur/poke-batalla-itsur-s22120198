@@ -4,14 +4,12 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
-import java.io.Serializable;
-
 /**
  *
  * @author alejandro
  */
 
-public class DanzaLluvia extends MovimientoEstado implements Serializable{
+public class DanzaLluvia extends MovimientoEstado {
         public DanzaLluvia() {
         this.tipo=TiposDeMovimiento.AGUA;
         this.potencia = 0;

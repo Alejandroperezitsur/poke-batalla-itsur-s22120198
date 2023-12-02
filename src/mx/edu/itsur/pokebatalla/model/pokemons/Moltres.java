@@ -1,7 +1,6 @@
 package mx.edu.itsur.pokebatalla.model.Pokemons;
 
 
-import java.io.Serializable;
 import mx.edu.itsur.pokebatalla.model.moves.AtaqueRapido;
 import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
 import mx.edu.itsur.pokebatalla.model.moves.OndaIgnea;
@@ -13,7 +12,7 @@ import mx.edu.itsur.pokebatalla.model.moves.Latigo;
  *
  * @author alejandro perez vazquez
  */
-public class Moltres extends Pokemon implements Serializable{
+public class Moltres extends Pokemon {
      public enum Movimientos{
         DanzaLluvia,
         AtaqueAla,

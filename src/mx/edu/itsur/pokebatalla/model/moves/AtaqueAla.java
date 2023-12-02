@@ -4,14 +4,12 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
-import java.io.Serializable;
-
 /**
  *
  * @author alejandro
  */
 
-public class AtaqueAla extends MovimientoFisico implements Serializable{
+public class AtaqueAla extends MovimientoFisico {
         public AtaqueAla() {
         this.tipo=TiposDeMovimiento.VOLADOR;
         this.potencia = 60;

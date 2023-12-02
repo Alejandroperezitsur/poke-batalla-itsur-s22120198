@@ -8,9 +8,7 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
-import java.io.Serializable;
-
-public class Amnesia extends MovimientoEstado implements Serializable {
+public class Amnesia extends MovimientoEstado  {
         public Amnesia() {
         this.tipo=Movimiento.TiposDeMovimiento.PSIQUICO;
         this.potencia = 0;

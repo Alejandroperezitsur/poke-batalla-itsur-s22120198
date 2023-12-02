@@ -1,6 +1,5 @@
 package mx.edu.itsur.pokebatalla.model.Pokemons;
 
-import java.io.Serializable;
 import mx.edu.itsur.pokebatalla.model.Battles.Batalla;
 import mx.edu.itsur.pokebatalla.model.Battles.Entrenador;
 
@@ -8,7 +7,7 @@ import mx.edu.itsur.pokebatalla.model.Battles.Entrenador;
  *
  *  * @author alejandro perez vazquez
  */
-public class Main implements Serializable {
+public class Main  {
 
     public static void main(String[] args) {
         //Unidad 5 

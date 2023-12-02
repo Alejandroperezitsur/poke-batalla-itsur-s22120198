@@ -4,13 +4,11 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
-import java.io.Serializable;
-
 /**
  *
  * @author alejandro
  */
-public class AtaqueRapido extends MovimientoFisico implements Serializable{
+public class AtaqueRapido extends MovimientoFisico {
 
     public AtaqueRapido() {
         this.tipo=TiposDeMovimiento.NORMAL;

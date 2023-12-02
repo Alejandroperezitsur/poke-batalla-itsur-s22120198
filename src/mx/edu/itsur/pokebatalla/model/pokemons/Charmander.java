@@ -1,13 +1,12 @@
 package mx.edu.itsur.pokebatalla.model.Pokemons;
 
-import java.io.Serializable;
 import mx.edu.itsur.pokebatalla.model.moves.Movimiento;
 import mx.edu.itsur.pokebatalla.model.moves.AtaqueRapido;
 
 /**
 @author alejandro perez vazquez 
 */
-public class Charmander extends Pokemon implements Serializable {
+public class Charmander extends Pokemon  {
 
     public enum Movimientos {
         ATAQUE_RAPIDO,

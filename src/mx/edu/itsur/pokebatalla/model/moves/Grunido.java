@@ -4,13 +4,11 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
-import java.io.Serializable;
-
 /**
  *
  * @author alejandro
  */
-public class Grunido extends MovimientoEstado implements Serializable{
+public class Grunido extends MovimientoEstado {
         public Grunido() {
         this.tipo = TiposDeMovimiento.NORMAL;
         this.potencia = 0;

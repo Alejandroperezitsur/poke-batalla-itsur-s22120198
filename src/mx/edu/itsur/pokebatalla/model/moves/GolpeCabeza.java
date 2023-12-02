@@ -4,13 +4,11 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
-import java.io.Serializable;
-
 /**
  *
  * @author alejandro
  */
-public class GolpeCabeza extends MovimientoFisico implements Serializable {
+public class GolpeCabeza extends MovimientoFisico  {
         public GolpeCabeza() {
         this.tipo=Movimiento.TiposDeMovimiento.NORMAL;
         this.potencia = 70;

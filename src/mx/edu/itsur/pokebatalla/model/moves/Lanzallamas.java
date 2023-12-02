@@ -4,14 +4,12 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
-import java.io.Serializable;
-
 /**
  *
  * @author alejandro
  */
 
-public class Lanzallamas extends MovimientoEspecial implements Serializable {
+public class Lanzallamas extends MovimientoEspecial  {
         public Lanzallamas() {
         this.tipo=TiposDeMovimiento.FUEGO;
         this.potencia = 90;

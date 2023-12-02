@@ -4,14 +4,12 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
-import java.io.Serializable;
-
 /**
  *
  * @author alejandro
  */
 
-public class Cascada extends MovimientoEspecial implements Serializable{
+public class Cascada extends MovimientoEspecial {
         public Cascada() {
         this.tipo=TiposDeMovimiento.AGUA;
         this.potencia = 80;

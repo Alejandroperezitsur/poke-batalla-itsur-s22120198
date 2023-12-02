@@ -4,13 +4,11 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
-import java.io.Serializable;
-
 /**
  *
  * @author alejandro perez vazquez
  */
-public class BolaVoltio extends MovimientoEspecial implements Serializable{
+public class BolaVoltio extends MovimientoEspecial {
     public BolaVoltio() {
         this.tipo = TiposDeMovimiento.ELECTRICO;
         this.potencia = 0;

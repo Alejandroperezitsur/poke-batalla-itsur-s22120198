@@ -4,13 +4,11 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
-import java.io.Serializable;
-
 /**
  *
  * @author alejandro
  */
-public class Proteccion extends MovimientoEstado implements Serializable {
+public class Proteccion extends MovimientoEstado  {
         public Proteccion() {
         this.tipo=TiposDeMovimiento.NORMAL;
         this.potencia = 0;

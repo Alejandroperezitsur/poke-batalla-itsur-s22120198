@@ -4,7 +4,6 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
-import java.io.Serializable;
 import mx.edu.itsur.pokebatalla.model.Pokemons.Pokemon;
 
 /**
@@ -12,7 +11,7 @@ import mx.edu.itsur.pokebatalla.model.Pokemons.Pokemon;
  * @author alejandro
  */
 
-public class Impactrueno extends MovimientoEspecial implements Serializable {
+public class Impactrueno extends MovimientoEspecial  {
 
     public Impactrueno() {
         this.tipo = TiposDeMovimiento.ELECTRICO;

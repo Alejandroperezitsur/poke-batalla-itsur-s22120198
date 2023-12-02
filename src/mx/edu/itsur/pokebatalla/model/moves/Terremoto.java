@@ -4,13 +4,11 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
-import java.io.Serializable;
-
 /**
  *
  * @author alejandro
  */
-public class Terremoto extends MovimientoFisico implements Serializable {
+public class Terremoto extends MovimientoFisico  {
         public Terremoto() {
         this.tipo=TiposDeMovimiento.TIERRA;
         this.potencia = 100;

@@ -4,13 +4,11 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
-import java.io.Serializable;
-
 /**
  *
  * @author alejandro perez vazquez
  */
-public class CambiaDefensa extends MovimientoFisico implements Serializable {
+public class CambiaDefensa extends MovimientoFisico  {
     public CambiaDefensa() {
         this.tipo = TiposDeMovimiento.PSIQUICO;
         this.potencia = 0;

@@ -4,13 +4,11 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
-import java.io.Serializable;
-
 /**
  *
  * @author alejandro perez vazquez
  */
-public class Triturar extends MovimientoEstado implements Serializable {
+public class Triturar extends MovimientoEstado  {
      public Triturar() {
         this.tipo = Movimiento.TiposDeMovimiento.SINIESTRO;
         this.potencia = 80;

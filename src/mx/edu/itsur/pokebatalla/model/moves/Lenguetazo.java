@@ -4,13 +4,11 @@
  */
 package mx.edu.itsur.pokebatalla.model.moves;
 
-import java.io.Serializable;
-
 /**
  *
  * @author alejandro perez vazquez
  */
-public class Lenguetazo extends MovimientoEstado implements Serializable {
+public class Lenguetazo extends MovimientoEstado  {
      public Lenguetazo() {
         this.tipo = Movimiento.TiposDeMovimiento.FANTASMA;
         this.potencia = 30;
